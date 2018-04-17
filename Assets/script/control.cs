@@ -9,7 +9,7 @@ public class control : MonoBehaviour {
 	//initiate mouse & object position vector3
 	private Vector3 mousePos;
 	private Vector3 objPos;
-	private float x = 0f,  y = 0f;
+	private float x,  y;
 
 	void OnMouseDrag(){
 		//get mouse position and translate it into world position
@@ -20,13 +20,13 @@ public class control : MonoBehaviour {
 	
 	}
 	void OnMouseUp(){
+		float xGrid = 1/sizeX;
+		float yGrid = 1/sizeY;
 
-		//snap to grid what release mouse button
-		float reciprocalGridX = 1f / sizeX;
-		float reciprocalGridY = 1f / sizeY;
-
-		x = Mathf.Round (transform.position.x * reciprocalGridX) / reciprocalGridX;
-		y = Mathf.Round (transform.position.y * reciprocalGridY) / reciprocalGridY;
+		x = Mathf.Round (transform.position.x * 1/xGrid) / xGrid;
+		y = Mathf.Round (transform.position.y * 1/yGrid) / yGrid;
+		Debug.Log ("x:" + x);
+		Debug.Log ("y:" + y);
 
 		transform.position = new Vector3 (x, y, transform.position.z);
 	}
