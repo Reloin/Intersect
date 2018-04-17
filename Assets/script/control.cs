@@ -20,13 +20,11 @@ public class control : MonoBehaviour {
 	
 	}
 	void OnMouseUp(){
-		float xGrid = 1/sizeX;
-		float yGrid = 1/sizeY;
+		float xGrid = 1/(sizeX / 2);
+		float yGrid = 1/(sizeY / 2);
 
-		x = Mathf.Round (transform.position.x * 1/xGrid) / xGrid;
-		y = Mathf.Round (transform.position.y * 1/yGrid) / yGrid;
-		Debug.Log ("x:" + x);
-		Debug.Log ("y:" + y);
+		x = Mathf.Round (transform.position.x * xGrid) / xGrid;
+		y = Mathf.Round (transform.position.y * yGrid) / yGrid;
 
 		transform.position = new Vector3 (x, y, transform.position.z);
 	}
