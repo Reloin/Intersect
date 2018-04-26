@@ -25,7 +25,7 @@ public class control : MonoBehaviour {
 
 		x = Mathf.Round (transform.position.x * xGrid) / xGrid;
 		y = Mathf.Round (transform.position.y * yGrid) / yGrid;
-
+		Debug.Log ("x location:" + x + ", y location:" + y);
 		transform.position = new Vector3 (x, y, transform.position.z);
 	}
 

@@ -10,7 +10,9 @@ public class chgClrYellow : MonoBehaviour {
 	public Material black;
 
 	private Renderer rend;
-	private int triggerCount = 0;
+	private int intRed = 0;
+	private int intBlue = 0;
+
 	void Start () 
 	{
 		//get renderer
@@ -21,20 +23,22 @@ public class chgClrYellow : MonoBehaviour {
 	void OnTriggerEnter(Collider col)
 	{
 
-		Debug.Log ("yellow count:"+ triggerCount);
+
 		//check what color intersect with our shapes
-		if (triggerCount >= 2){
+		if (intRed > 0 && intBlue > 0){
 			rend.sharedMaterial = black; 
 		}
 		//yellow + red = orange
 		if (col.transform.CompareTag("Red")){
 			rend.sharedMaterial = orange; 
-			++triggerCount;
+			++intRed;
+			Debug.Log ("Yellow sqr Red count:" + intRed);
 		}
 		//yellow + blue = green
 		else if (col.transform.CompareTag("Blue")){
 			rend.sharedMaterial = green; 
-			++triggerCount;
+			++intBlue;
+			Debug.Log ("Yellow sqr Blue count:" + intBlue);
 		}
 
 	}
@@ -43,15 +47,17 @@ public class chgClrYellow : MonoBehaviour {
 	void OnTriggerExit(Collider col)
 	{
 		if (col.transform.CompareTag("Red")){
-			--triggerCount;
+			--intRed;
+			Debug.Log ("Yellow sqr Red count:" + intRed);
 		}
 		//yellow + blue = green
 		else if (col.transform.CompareTag("Blue")){
-			--triggerCount;
+			--intBlue;
+			Debug.Log ("Yellow sqr Blue count:" + intBlue);
 		}
-		if (triggerCount == 0) {
+		if (intRed == 0 && intBlue == 0) {
 			rend.sharedMaterial = yellow;
 		}
-		Debug.Log ("yellow count:"+ triggerCount);
+
 	}
 }

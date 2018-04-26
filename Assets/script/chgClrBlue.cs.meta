@@ -5,7 +5,11 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - blue: {fileID: 2100000, guid: d6e53704b4df56c428ffc8bb0526a6ce, type: 2}
+  - purple: {fileID: 2100000, guid: 45f4f0c34c9e2f24098d2becfd694c9d, type: 2}
+  - green: {fileID: 2100000, guid: d219fa53baae0cb449fdd21fafc51005, type: 2}
+  - black: {fileID: 2100000, guid: 83b34d1b01ea3904baeb6f69ec943fad, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
